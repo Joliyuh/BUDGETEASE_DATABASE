@@ -27,3 +27,26 @@ echo "Invalid Account";
 }
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+<h2>Login</h2>
+
+<form method="POST">
+
+<input type="Email" name="Email" placeholder="Email">
+
+<input type="Password" name="Password" placeholder="Password">
+
+<button type="submit" name="login">Login</button>
+
+</form>
+
+</body>
+</html>
