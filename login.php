@@ -34,4 +34,42 @@ if(isset($_POST['login'])){
 }
 ?>
 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Login</h2>
+
+<form method="POST">
+
+    <input type="email"
+    name="Email"
+    placeholder="Email"
+    required>
+
+    <input type="password"
+    name="Password"
+    placeholder="Password"
+    required>
+
+    <button type="submit" name="login">
+        Login
+    </button>
+
+</form>
+
+<a href="register.php">Create Account</a>
+
+</div>
+
+</body>
+</html>
 
