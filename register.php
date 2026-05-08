@@ -3,19 +3,19 @@ include 'INCLUDES/connection.php';
 
 if(isset($_POST['register'])){
 
-$fullname = $_POST['Fullname'];
-$email = $_POST['Email'];
-$password = $_POST['Password'];
+    $fullname = $_POST['Fullname'];
+    $email = $_POST['Email'];
 
-$sql = "INSERT INTO Users(`Fullname`,Email,Password)
-VALUES('$fullname','$email','$password')";
+    // PASSWORD HASHING
+    $password = password_hash($_POST['Password'], PASSWORD_DEFAULT);
 
-mysqli_query($conn,$sql);
+    $sql = "INSERT INTO Users(Fullname, Email, Password)
+            VALUES('$fullname','$email','$password')";
 
-echo "Registered Successfully";
+    mysqli_query($conn, $sql);
 
-header("Location: login.php");
-exit();
+    header("Location: login.php");
+    exit();
 }
 ?>
 
@@ -23,22 +23,42 @@ exit();
 <html>
 
 <head>
-<title>Register</title>
-<link rel="stylesheet" href="CSS/style.css">
+    <title>Register</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
+
+<div class="container">
 
 <h2>Register</h2>
 
 <form method="POST">
 
-<input type="text" name="Fullname" placeholder="Fullname">
-<input type="email" name="Email" placeholder="Email">
-<input type="password" name="Password" placeholder="Password">
-<button type="submit" name="register">Register</button>
+    <input type="text"
+    name="Fullname"
+    placeholder="Fullname"
+    required>
+
+    <input type="email"
+    name="Email"
+    placeholder="Email"
+    required>
+
+    <input type="password"
+    name="Password"
+    placeholder="Password"
+    required>
+
+    <button type="submit" name="register">
+        Register
+    </button>
 
 </form>
+
+<a href="login.php">Already have an account?</a>
+
+</div>
 
 </body>
 </html>
